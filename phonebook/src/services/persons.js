@@ -9,5 +9,8 @@ const create = (newObject) =>
 
 const deletePersonWithId = (id) => axios.delete(`${baseUrl}/${id}`);
 
-const service = { getAll, create, delete: deletePersonWithId };
+const update = (id, newObject) =>
+  axios.put(`${baseUrl}/${id}`, newObject).then((response) => response.data);
+
+const service = { getAll, create, delete: deletePersonWithId, update };
 export default service;
